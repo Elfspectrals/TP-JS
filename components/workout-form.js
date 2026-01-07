@@ -13,7 +13,7 @@ class WorkoutFormComponent extends HTMLElement {
     render() {
         this.innerHTML = `
             <section>
-                <h2>${this.editingWorkout ? 'Modifier' : 'Ajouter'} une séance d'entraînement</h2>
+                <h2 onclick="console.log('test')">${this.editingWorkout ? 'Modifier' : 'Ajouter'} une séance d'entraînement</h2>
                 <form id="workoutForm">
                     <div class="form-row">
                         <div class="form-group">

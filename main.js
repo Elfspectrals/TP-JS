@@ -93,7 +93,15 @@ function showMainApp() {
     document.getElementById('mainApp').classList.remove('hidden');
     
     // Notifier les composants que l'utilisateur est connecté
-    document.getElementById('dashboard').refresh();
+    const dashboard = document.getElementById('dashboard');
+    if (dashboard) {
+        // Forcer le rendu si le composant est vide
+        if (dashboard.innerHTML === '' || dashboard.innerHTML.trim() === '') {
+            dashboard.render();
+        }
+        dashboard.refresh();
+    }
+    
     document.getElementById('workoutList').refresh();
     document.getElementById('goalsComponent').refresh();
 }
