@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tableau de bord - Suivi d'activité physique</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.39.0/dist/umd/supabase.min.js"></script>
+</head>
+<body>
+    <div id="app">
+        <!-- Composant d'authentification -->
+        <auth-component id="authComponent"></auth-component>
+        
+        <!-- Application principale (affichée après connexion) -->
+        <div id="mainApp" class="hidden">
+            <header>
+                <h1>🏋️ Mon Tableau de bord Fitness</h1>
+                <button id="logoutBtn" class="btn-secondary">Déconnexion</button>
+            </header>
+            
+            <main>
+                <div class="container">
+                    <!-- Section Profil utilisateur -->
+                    <section class="profile-section">
+                        <h2>Mon Profil</h2>
+                        <div class="profile-form">
+                            <label>
+                                Poids (kg):
+                                <input type="number" id="userWeight" min="30" max="200" step="0.1">
+                            </label>
+                            <label>
+                                Taille (cm):
+                                <input type="number" id="userHeight" min="100" max="250" step="1">
+                            </label>
+                            <label>
+                                Âge:
+                                <input type="number" id="userAge" min="10" max="120" step="1">
+                            </label>
+                            <button id="saveProfileBtn" class="btn-primary">Enregistrer le profil</button>
+                        </div>
+                    </section>
+                    
+                    <!-- Tableau de bord -->
+                    <dashboard-component id="dashboard"></dashboard-component>
+                    
+                    <!-- Section Objectifs -->
+                    <goals-component id="goalsComponent"></goals-component>
+                    
+                    <!-- Formulaire d'ajout d'entraînement -->
+                    <workout-form-component id="workoutForm"></workout-form-component>
+                    
+                    <!-- Liste des entraînements -->
+                    <workout-list-component id="workoutList"></workout-list-component>
+                </div>
+            </main>
+        </div>
+    </div>
+    
+    <script type="module" src="supabase-config.js"></script>
+    <script type="module" src="components/auth-component.js"></script>
+    <script type="module" src="components/workout-form.js"></script>
+    <script type="module" src="components/workout-list.js"></script>
+    <script type="module" src="components/dashboard.js"></script>
+    <script type="module" src="components/goals-component.js"></script>
+    <script type="module" src="main.js"></script>
+</body>
+</html>
+
